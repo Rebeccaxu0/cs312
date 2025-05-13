@@ -46,6 +46,7 @@ if __name__ == '__main__':
         for train_img in training_images:
             url1 = get_image_url(os.path.join(synthetic_folder, synth_img))
             url2 = get_image_url(os.path.join(training_folder, train_img))
+            print(f"Comparing {synth_img} and {train_img}")
             similarity_matrix.at[synth_img, train_img] = face_compare(app_, url1, url2)
             time.sleep(1.5)
 
