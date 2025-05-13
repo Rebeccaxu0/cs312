@@ -7,6 +7,7 @@ from facepplib import FacePP, exceptions
 import os
 import pandas as pd
 import matplotlib.pyplot as plt
+import time
    
 # define face comparing function 
 def face_compare(app, Image1, Image2): 
@@ -16,7 +17,7 @@ def face_compare(app, Image1, Image2):
     return cmp_.confidence
 
 def get_image_url(path):
-    base_url = 'https://github.com/Rebeccaxu0/cs312/blob/main/'
+    base_url = 'https://raw.githubusercontent.com/Rebeccaxu0/cs312/refs/heads/main/'
     return base_url + path
    
 # Driver Code  
@@ -46,6 +47,7 @@ if __name__ == '__main__':
             url1 = get_image_url(os.path.join(synthetic_folder, synth_img))
             url2 = get_image_url(os.path.join(training_folder, train_img))
             similarity_matrix.at[synth_img, train_img] = face_compare(app_, url1, url2)
+            time.sleep(1.5)
 
     
     plt.figure()
